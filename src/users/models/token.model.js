@@ -1,5 +1,5 @@
 'use strict';
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 
 const refreshTokenSchema = new mongoose.Schema({
     token: { type: String, required: true },
@@ -19,7 +19,7 @@ const refreshTokenSchema = new mongoose.Schema({
         ref: 'Permission',
     },
     createdAt: { type: Date, default: Date.now, expires: '7d' }, // Token expires in 7 days
-})
+});
 
-const RefreshToken = mongoose.model('RefreshToken', refreshTokenSchema)
-module.exports = RefreshToken
+const RefreshToken = mongoose.model('RefreshToken', refreshTokenSchema);
+module.exports = RefreshToken;

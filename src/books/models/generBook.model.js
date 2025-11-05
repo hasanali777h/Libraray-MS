@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const generSchema = new mongoose.Schema(
     {
         gener: String,
@@ -9,6 +9,6 @@ const generSchema = new mongoose.Schema(
         },
     },
     { timestamps: true }
-)
-const Gener = mongoose.model('Gener', generSchema)
-module.exports = Gener
+);
+const Gener = mongoose.model('Gener', generSchema);
+module.exports = Gener;

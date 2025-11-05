@@ -1,6 +1,6 @@
-'use strict'
-const mongoose = require('mongoose')
-mongoose.set('strictPopulate', false)
+'use strict';
+const mongoose = require('mongoose');
+mongoose.set('strictPopulate', false);
 const roleSchema = new mongoose.Schema(
     {
         role: String,
@@ -13,6 +13,6 @@ const roleSchema = new mongoose.Schema(
         ],
     },
     { timestamps: true }
-)
-const Role = mongoose.model('Role', roleSchema)
-module.exports = Role
+);
+const Role = mongoose.model('Role', roleSchema);
+module.exports = Role;

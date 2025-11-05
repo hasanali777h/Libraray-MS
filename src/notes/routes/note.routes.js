@@ -1,6 +1,6 @@
 'use strict';
 const router = require('express').Router();
-const controller = require('../controllers/book.controller');
+const controller = require('../controllers/note.controller');
 const authenticateToken = require('../../middlewares/verifyToken');
 const verfiyRoles = require('../../middlewares/verifyRoles');
 const verifyPermissions = require('../../middlewares/verifyPermissions');
@@ -10,34 +10,34 @@ router.post(
     authenticateToken,
     verfiyRoles,
     verifyPermissions(['create']),
-    controller.bookCreate
+    controller.noteCreate
 );
 router.get(
     '/get',
     authenticateToken,
     verfiyRoles,
     verifyPermissions(['read']),
-    controller.bookGet
+    controller.noteGet
 );
 router.get(
     '/get/:id',
     authenticateToken,
     verfiyRoles,
     verifyPermissions(['read']),
-    controller.bookGetOne
+    controller.noteGetOne
 );
 router.put(
     '/update/:id',
     authenticateToken,
     verfiyRoles,
     verifyPermissions(['update']),
-    controller.bookUpdate
+    controller.noteUpdate
 );
 router.delete(
     '/delete/:id',
     authenticateToken,
     verfiyRoles,
     verifyPermissions(['delete']),
-    controller.bookDelete
+    controller.noteDelete
 );
 module.exports = router;
