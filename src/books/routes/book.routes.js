@@ -8,36 +8,36 @@ const verifyPermissions = require('../../middlewares/verifyPermissions');
 router.post(
     '/create',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['create']),
+    verfiyRoles,
     controller.bookCreate
 );
 router.get(
     '/get',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['read']),
+    verfiyRoles,
     controller.bookGet
 );
 router.get(
     '/get/:id',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['read']),
+    verfiyRoles,
     controller.bookGetOne
 );
 router.put(
     '/update/:id',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['update']),
+    verfiyRoles,
     controller.bookUpdate
 );
 router.delete(
     '/delete/:id',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['delete']),
+    verfiyRoles,
     controller.bookDelete
 );
 module.exports = router;

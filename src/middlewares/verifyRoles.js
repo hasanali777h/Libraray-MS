@@ -1,5 +1,6 @@
 'use strict';
 const Roles = require('../roles/models/role.model');
+const log = require('../utils/logger');
 
 const verifyRoles = async (req, res, next) => {
     try {
@@ -19,7 +20,7 @@ const verifyRoles = async (req, res, next) => {
         }
         next();
     } catch (error) {
-        console.error('verifyRoles error:', error);
+        log.error('verifyRoles error:', error);
         res.status(403).json({ message: error.message || 'Unauthorized' });
     }
 };

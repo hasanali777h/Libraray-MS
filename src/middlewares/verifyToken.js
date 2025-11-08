@@ -1,5 +1,6 @@
 'use strict';
 const config = require('../configs/config');
+const log = require('../utils/logger');
 const jwt = require('jsonwebtoken');
 
 const authenticateToken = (req, res, next) => {
@@ -29,7 +30,7 @@ const authenticateToken = (req, res, next) => {
             next();
         });
     } catch (error) {
-        console.error('Token verification error:', error);
+        log.error('Token verification error:', error);
         return res.status(500).json({ message: 'Internal Server Error' });
     }
 };

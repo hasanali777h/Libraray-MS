@@ -6,10 +6,12 @@ const fs = require('fs');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const globalErrorHandler = require('./errors/handleError');
-const user = require('./users/routes/user.routes');
-const book = require('./books/routes/book.routes');
 const role = require('./roles/routes/role.routes');
 const permission = require('./permissions/routes/permission.routes');
+const auth = require('./auth/routes/auth.routes')
+const user = require('./users/routes/user.routes');
+const book = require('./books/routes/book.routes');
+const note = require('./notes/routes/note.routes');
 const morganMiddleware = require('./middlewares/morgan');
 const log = require('./utils/logger');
 
@@ -41,10 +43,12 @@ app.get('/', (req, res) =>
     )
 );
 app.use('/api/v1', limiter);
-app.use('/api/v1/book', book);
 app.use('/api/v1/role', role);
 app.use('/api/v1/permission', permission);
+app.use('/api/v1/auth', auth);
 app.use('/api/v1/user', user);
+app.use('/api/v1/book', book);
+app.use('/api/v1/note', note);
 app.use(globalErrorHandler);
 app.use((err, req, res, next) => {
     log.error(err.stack);

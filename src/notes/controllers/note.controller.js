@@ -17,7 +17,7 @@ const noteGet = asyncWrapper(async (req, res) => {
         .sort()
         .paginate();
     const note = await result.query;
-    const count = await User.countDocuments(result.query.getQuery());
+    const count = await Note.countDocuments(result.query.getQuery());
     const totalPages = Math.ceil(count / result.limit);
     res.status(200).json({
         page: result.page,

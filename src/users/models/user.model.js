@@ -22,6 +22,11 @@ const userSchema = new mongoose.Schema(
             require: true,
             ref: 'Role',
         },
+        isActive: {
+            type: Boolean,
+            default: true,
+        },
+        sessionId: String,
     },
     { timestamps: true }
 );

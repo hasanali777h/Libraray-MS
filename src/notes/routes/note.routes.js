@@ -4,33 +4,35 @@ const controller = require('../controllers/note.controller');
 const authenticateToken = require('../../middlewares/verifyToken');
 const verfiyRoles = require('../../middlewares/verifyRoles');
 const verifyPermissions = require('../../middlewares/verifyPermissions');
+const verifyModules = require('../../middlewares/verifyModule');
 
 router.post(
     '/create',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['create']),
+    verfiyRoles,
     controller.noteCreate
 );
 router.get(
     '/get',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['read']),
+    verfiyRoles,
+    verifyModules(['notes','users', 'books'],['read']),
     controller.noteGet
 );
 router.get(
     '/get/:id',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['read']),
+    verfiyRoles,
     controller.noteGetOne
 );
 router.put(
     '/update/:id',
     authenticateToken,
-    verfiyRoles,
     verifyPermissions(['update']),
+    verfiyRoles,
     controller.noteUpdate
 );
 router.delete(

@@ -18,7 +18,8 @@ const generateRefreshToken = async (...user) => {
             return u._id;
         }),
         roleId: user?.roleId,
-        permissionId: user?.permissionId,
+        // permissionId: user?.permissionId,
+        sessionId: user?.sessionId
     });
     return token;
 };

@@ -2,6 +2,7 @@
 
 const Role = require('../roles/models/role.model');
 const Permission = require('../permissions/models/permission.model');
+const log = require('../utils/logger');
 
 /**
  * Middleware to check if user has required permission(s)
@@ -39,7 +40,7 @@ const verifyPermissions = (requiredPermissions = []) => {
             }
             next();
         } catch (err) {
-            console.error('Permission verification error:', err);
+            log.error('Permission verification error:', err);
             res.status(500).json({ message: 'Internal server error.' });
         }
     };
